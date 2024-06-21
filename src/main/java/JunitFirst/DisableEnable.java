@@ -6,9 +6,14 @@ import java.time.LocalDateTime;
 import java.time.DayOfWeek;
 import org.junit.jupiter.api.condition.DisabledOnOs;
 import org.junit.jupiter.api.condition.OS;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+import Watch.WatchTest;
+
 import org.junit.jupiter.api.condition.*;
 import org.junit.jupiter.api.*;
 
+@ExtendWith(WatchTest.class) // Add report on Testing
 public class DisableEnable {
 
     @Test

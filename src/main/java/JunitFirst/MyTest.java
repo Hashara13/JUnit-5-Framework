@@ -1,10 +1,16 @@
 package JunitFirst;
 
 import org.junit.jupiter.api.Test;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
+import java.util.HashMap;
+import java.util.Map;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.Arrays;
+
 import java.util.List;
+
 
 public class MyTest {
 
@@ -61,5 +67,21 @@ public class MyTest {
             }
         );
         System.out.println("Passed");
+    }
+    @Test
+    void testExample7() {
+        // Check Map Tests on a list
+Map<String, Integer> obj1=new HashMap<>();
+obj1.put("Key01", 1);
+obj1.put("Key02", 2);
+obj1.put("Key03", 3);
+assertThat(obj1,Matchers.hasKey(4)); // fail because it havem't
+assertThat(obj1,Matchers.hasKey("Key02"));
+//This assertion will pass because at least one of the conditions is true ("Key02" is present)
+assertThat(obj1, Matchers.anyOf(Matchers.hasKey("Key02"), Matchers.hasKey("Key04"))); // Fixed to use a valid key type
+// for all replaceanyOf by allOf
+// containsInAnyOrder check the sorting
+
+System.out.println("Passed");
     }
 }
